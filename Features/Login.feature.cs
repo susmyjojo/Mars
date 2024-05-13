@@ -94,7 +94,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 5
-testRunner.When(string.Format("enters valid username \'{0}\' and password \'{1}\' clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given(string.Format("user enters valid username \'{0}\' and password \'{1}\'  clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
 testRunner.Then("User should be redirected to the home page and User should see his name on the to" +
@@ -125,7 +125,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 14
-testRunner.When(string.Format("User enters invalid username \'{0}\' and/or password \'{1}\' clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given(string.Format("User enters invalid username \'{0}\' and/or password \'{1}\' clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 15
 testRunner.Then("User should see an error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -191,10 +191,12 @@ testRunner.Then("User should see the validation message", ((string)(null)), ((Te
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("5- Verify user is able to reset password")]
-        public void _5_VerifyUserIsAbleToResetPassword()
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", null)]
+        public void _5_VerifyUserIsAbleToResetPassword(string username, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("5- Verify user is able to reset password", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 31
 this.ScenarioInitialize(scenarioInfo);
@@ -207,10 +209,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 32
-testRunner.When("User clicks forgot password in the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given(string.Format("User enter \'{0}\' and clicks forgot password in the login page", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
-testRunner.Then("user can enter emailid and click send verification email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When(string.Format("user can enter \'{0}\' and click send verification email", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 34
+testRunner.Then("user able to see a message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

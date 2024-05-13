@@ -7,42 +7,50 @@ namespace ProjectMarsAutomation.StepDefinitions
 {
     [Binding]
 
-   
+
     public class LogInFeaturesStepDefinitions : CommonDriver
 
     {
-       
-       // HomePage HomePageObj;
-        LoginPage LoginPageObj;
 
-        [When(@"enters valid username '([^']*)' and password (.*)")]
-        public void WhenEntersValidUsernameAndPassword(string username, string password)
+        HomePage HomePageObj;
+        LoginPage LoginPageObj;
+        [Given(@"user enters valid username '([^']*)' and password '([^']*)'  clicks login button")]
+        public void GivenUserEntersValidUsernameAndPasswordClicksLoginButton(string username, string password)
         {
             LoginPageObj = new LoginPage();
+
             LoginPageObj.LoginActions(username, password);
-           
         }
 
-                
         [Then(@"User should be redirected to the home page and User should see his name on the topright")]
         public void ThenUserShouldBeRedirectedToTheHomePageAndUserShouldSeeHisNameOnTheTopright()
         {
-           
+            HomePageObj = new HomePage();
+            string welcomeText = HomePageObj.getWelcomeText();
+            Assert.That(welcomeText == "Hi jojo" || welcomeText == "Hi", "Actual welcome text and expected welcome text do not match");
+            driver.Close();
+
         }
-       
+
         [When(@"User enters invalid username ""([^""]*)"" and/or password ""([^""]*)"" clicks login button")]
         public void WhenUserEntersInvalidUsernameAndOrPasswordClicksLoginButton(string username, string password)
         {
             LoginPageObj = new LoginPage();
             LoginPageObj.LoginActions(username, password);
         }
+        [Given(@"User enters invalid username '([^']*)' and/or password '([^']*)' clicks login button")]
+        public void GivenUserEntersInvalidUsernameAndOrPasswordClicksLoginButton(string username, string password)
+        {
+            LoginPageObj = new LoginPage();
+            LoginPageObj.InvalidData(username, password);
+        }
 
-                       
+
         [Then(@"User should see an error message")]
         public void ThenUserShouldSeeAnErrorMessage()
         {
             LoginPageObj = new LoginPage();
-          
+
         }
 
         [When(@"User attempts to log in with a huge payload body to overflow the system clicks login button")]
@@ -65,16 +73,26 @@ namespace ProjectMarsAutomation.StepDefinitions
         }
 
 
-        [When(@"User clicks forgot password in the login page")]
-        public void WhenUserClicksForgotPasswordInTheLoginPage()
+        [Given(@"User enter '([^']*)' and clicks forgot password in the login page")]
+        public void GivenUserEnterAndClicksForgotPasswordInTheLoginPage(string username)
         {
-            throw new PendingStepException();
+            LoginPageObj = new LoginPage();
+            LoginPageObj.ForgotPassword(username);
         }
 
-        [Then(@"user can enter emailid and click send verification email")]
-        public void ThenUserCanEnterEmailidAndClickSendVerificationEmail()
+        [When(@"user can enter '([^']*)' and click send verification email")]
+        public void WhenUserCanEnterAndClickSendVerificationEmail(string username)
         {
-            throw new PendingStepException();
+            LoginPageObj = new LoginPage();
+            LoginPageObj.SendVerificationEmail(username);
+        }
+
+        [Then(@"user able to see a message")]
+        public void ThenUserAbleToSeeAMessage()
+        {
+            LoginPageObj = new LoginPage();
+            LoginPageObj.ErrorMessage();
+
         }
     }
 }
