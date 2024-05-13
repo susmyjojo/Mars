@@ -1,11 +1,6 @@
-using NUnit.Framework;
 using ProjectMarsAutomation.pages;
 using ProjectMarsAutomation.Pages;
 using ProjectMarsAutomation.utitlities;
-using RazorEngine;
-using System;
-using System.Runtime.InteropServices;
-using TechTalk.SpecFlow;
 
 namespace ProjectMarsAutomation.StepDefinitions
 {

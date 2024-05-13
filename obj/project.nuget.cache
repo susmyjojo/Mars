@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SwQJK5MvoY/7vwYZa3rNvLByT/msvT3C9/yk2FEJ8+xVxdyq6JdMQNcTsM3cpOdp5AxospBbvmuCRzt3IA0Egg==",
+  "dgSpecHash": "wef/uJgEmE3ixT9BVgOn+c+vU28yOxwnPEo8PYm6uQUhOhxef5NZyIPFzWMCdT7jYCMEvvbv6XqWzaD/0pzI+A==",
   "success": true,
-  "projectFilePath": "D:\\gitproject\\ProjectMarsAutomation\\Mars\\Mars.csproj",
+  "projectFilePath": "D:\\gitprojectsnew\\Mars\\Mars.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jojoj\\.nuget\\packages\\anglesharp\\1.1.0\\anglesharp.1.1.0.nupkg.sha512",
     "C:\\Users\\jojoj\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",

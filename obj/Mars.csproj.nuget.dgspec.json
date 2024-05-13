@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\gitproject\\ProjectMarsAutomation\\Mars\\Mars.csproj": {}
+    "D:\\gitprojectsnew\\Mars\\Mars.csproj": {}
   },
   "projects": {
-    "D:\\gitproject\\ProjectMarsAutomation\\Mars\\Mars.csproj": {
+    "D:\\gitprojectsnew\\Mars\\Mars.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\gitproject\\ProjectMarsAutomation\\Mars\\Mars.csproj",
+        "projectUniqueName": "D:\\gitprojectsnew\\Mars\\Mars.csproj",
         "projectName": "Mars",
-        "projectPath": "D:\\gitproject\\ProjectMarsAutomation\\Mars\\Mars.csproj",
+        "projectPath": "D:\\gitprojectsnew\\Mars\\Mars.csproj",
         "packagesPath": "C:\\Users\\jojoj\\.nuget\\packages\\",
-        "outputPath": "D:\\gitproject\\ProjectMarsAutomation\\Mars\\obj\\",
+        "outputPath": "D:\\gitprojectsnew\\Mars\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jojoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
