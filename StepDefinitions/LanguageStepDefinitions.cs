@@ -75,9 +75,10 @@ namespace ProjectMarsAutomation.StepDefinitions
         }
 
         [When(@"User deletes  '([^']*)'")]
-        public void WhenUserDeletes(string english)
+        public void WhenUserDeletes(string existing_language)
         {
             LanguageObj = new Languag();
+           // LanguageObj.Delete(existing_language);
            
         }
 
