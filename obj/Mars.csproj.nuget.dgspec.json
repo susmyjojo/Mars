@@ -52,9 +52,9 @@
               "target": "Package",
               "version": "[17.9.0, )"
             },
-            "Microsoft.NETCore.App": {
+            "Microsoft.NETCore": {
               "target": "Package",
-              "version": "[2.2.8, )"
+              "version": "[5.0.0, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",

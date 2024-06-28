@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using ProjectMarsAutomation.pages;
 using ProjectMarsAutomation.Pages;
 using ProjectMarsAutomation.utitlities;
@@ -7,9 +8,10 @@ namespace ProjectMarsAutomation.StepDefinitions
     [Binding]
     public class LanguageStepDefinitions : CommonDriver
     {
-        Languag LanguageObj;
+        Languag LanguageObj = new Languag();
         HomePage HomePageObj;
         LoginPage LoginPageObj;
+       
 
         [Given(@"enters valid username '([^']*)' and password '([^']*)'  clicks login button")]
         public void GivenEntersValidUsernameAndPasswordClicksLoginButton(string username, string password)
@@ -21,7 +23,7 @@ namespace ProjectMarsAutomation.StepDefinitions
         [When(@"user naviagate to language tab and click Add new button")]
         public void WhenUserNaviagateToLanguageTabAndClickAddNewButton()
         {
-            LanguageObj = new Languag();
+           
             LanguageObj.clickAddnewButton();
         }
         [When(@"User adds a language '([^']*)' with level '([^']*)' clicks  Add button")]
@@ -35,59 +37,80 @@ namespace ProjectMarsAutomation.StepDefinitions
 
       
         [Then(@"User should see the language '([^']*)' '([^']*)' added to the profile")]
-        public void ThenUserShouldSeeTheLanguageAddedToTheProfile(string language, string languagelevel)
+        public void ThenUserShouldSeeTheLanguageAddedToTheProfile(string language, string languageLevel)
         {
+            {
+                //Check success message
+                string message = LanguageObj.GetMessage();
+                string assertMessage = language + " has been added to your languages";
+                Assert.That(message == assertMessage, "Actual message and Expected message do not match");
 
+                //check language and language level are created successfully
+                string addedLanguage = LanguageObj.GetLanguage();
+                string addedLanguageLevel = LanguageObj.GetLanguageLevel();
+                Assert.That(addedLanguage == language, "Actual language and Expected language do not match");
+                Assert.That(addedLanguageLevel == languageLevel, "Actual language level and Expected language level do not match");
+                driver.Close();
+            }
         }   
         
 
-        [Given(@"User navigates to Language tab")]
-        public void GivenUserNavigatesToLanguageTab()
-        {
-            HomePageObj = new HomePage();
-            HomePageObj.NavigateToLanguageTab();
-        }
-
-        [When(@"User edits the existing '([^']*)' to '([^']*)'")]
-        public void WhenUserEditsTheExistingTo(string language, string newlanguage)
+       
+      
+        [When(@"User edits the existing '([^']*)' level to new '([^']*)'")]
+        public void WhenUserEditsTheExistingLevelToNew(string language, string languageLevel)
         {
             LanguageObj = new Languag();
-           // LanguageObj.EditLanguage(language, newlanguage);
+            LanguageObj.EditLanguage(language, languageLevel);
         }
 
-        [When(@"User Edits the Language '([^']*)' to '([^']*)'")]
-        public void WhenUserEditsTheLanguageTo(string level, string newlevel)
-        {
-            throw new PendingStepException();
-        }
 
         [When(@"User clicks on Update button to save language changes")]
         public void WhenUserClicksOnUpdateButtonToSaveLanguageChanges()
         {
             LanguageObj = new Languag();
-          
+            LanguageObj.updateButton();
         }
 
         [Then(@"User should see the '([^']*)' and '([^']*)'")]
-        public void ThenUserShouldSeeTheAnd(string p0, string intermediate)
+        public void ThenUserShouldSeeTheAnd(string language, string languageLevel)
         {
-            throw new PendingStepException();
+            //Check success message
+            string message = LanguageObj.GetMessage();
+            string assertMessage = language + " has been updated to your languages";
+            Assert.That(message == assertMessage, "Actual message and Expected message do not match");
+
+            //check language and language level are created successfully
+            string addedLanguage = LanguageObj.GetLanguage();
+            string addedLanguageLevel = LanguageObj.GetLanguageLevel();
+            Assert.That(addedLanguage == language, "Actual language and Expected language do not match");
+            Assert.That(addedLanguageLevel == languageLevel, "Actual language level and Expected language level do not match");
+            driver.Close();
         }
+    
 
         [When(@"User deletes  '([^']*)'")]
-        public void WhenUserDeletes(string existing_language)
+        public void WhenUserDeletes(string language)
         {
             LanguageObj = new Languag();
-           // LanguageObj.Delete(existing_language);
+           LanguageObj.DeleteLanguage(language);
            
         }
 
         [Then(@"User should not see the  '([^']*)' in the profile")]
-        public void ThenUserShouldNotSeeTheInTheProfile(string english)
+        public void ThenUserShouldNotSeeTheInTheProfile(string language)
         {
-            throw new PendingStepException();
-        }
+        //Check message
+        string message = LanguageObj.GetMessage();
+        string assertMessage = language + " has been deleted from your languages";
+        Assert.That(message == assertMessage, "Actual message and Expected message do not match.");
+
+        //check if language is deleted successfully
+        string lastLanguage = LanguageObj.GetLanguage();
+        Assert.That(lastLanguage != language, "Expected language has not been deleted.");
+        driver.Close();
+    }
+}
 
     }
 
-}

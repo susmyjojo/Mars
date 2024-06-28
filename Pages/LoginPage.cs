@@ -16,6 +16,7 @@ namespace ProjectMarsAutomation.pages
         private IWebElement VerificationButton => driver.FindElement(By.XPath("//button[@id='submit-btn']"));
 
 
+
         public void LoginActions(string username, string password)
         {
             try
@@ -61,8 +62,8 @@ namespace ProjectMarsAutomation.pages
             //identify username feildbox and enter username
             usernameTextbox.SendKeys(username);
             ForgotPasswordButton.Click();
-     
-       }
+
+        }
         public void SendVerificationEmail(string username)
         {
             driver.Manage().Window.Maximize();
@@ -70,14 +71,9 @@ namespace ProjectMarsAutomation.pages
             Thread.Sleep(5000);
             //identify username feildbox and enter username
             usernameTextbox.SendKeys(username);
-           VerificationButton.Click();
+            VerificationButton.Click();
         }
-    
-    
-public void ErrorMessage()
-        {
-            
-        }
-    }
 
+
+    }
 }
