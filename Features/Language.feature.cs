@@ -75,7 +75,7 @@ namespace Mars.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1- user is able to add a language and choose a level and save")]
-        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "English", "Advanced", null)]
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "English", "Basic", null)]
         public void _1_UserIsAbleToAddALanguageAndChooseALevelAndSave(string username, string password, string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -85,7 +85,7 @@ namespace Mars.Features
             argumentsOfScenario.Add("language", language);
             argumentsOfScenario.Add("level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1- user is able to add a language and choose a level and save", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -95,16 +95,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 4
 testRunner.Given(string.Format("enters valid username \'{0}\' and password \'{1}\'  clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 8
+#line 5
 testRunner.When("user naviagate to language tab and click Add new button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 9
+#line 6
 testRunner.And(string.Format("User adds a language \'{0}\' with level \'{1}\' clicks  Add button", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 10
+#line 7
 testRunner.Then(string.Format("User should see the language \'{0}\' \'{1}\' added to the profile", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -113,19 +113,17 @@ testRunner.Then(string.Format("User should see the language \'{0}\' \'{1}\' adde
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2-User is able to edit language and level")]
-        [NUnit.Framework.TestCaseAttribute("English", "Advanced", "Hindi", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("French", "Beginner", "Arabic", "Advanced", null)]
-        [NUnit.Framework.TestCaseAttribute("Spanish", "Intermediate", "Tamil", "Expert", null)]
-        public void _2_UserIsAbleToEditLanguageAndLevel(string language, string level, string new_Language, string new_Level, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "English", "Fluent", null)]
+        public void _2_UserIsAbleToEditLanguageAndLevel(string username, string password, string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
             argumentsOfScenario.Add("language", language);
             argumentsOfScenario.Add("level", level);
-            argumentsOfScenario.Add("new _language", new_Language);
-            argumentsOfScenario.Add("new_level", new_Level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2-User is able to edit language and level", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 18
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -135,20 +133,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 19
-testRunner.Given("User navigates to Language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 16
+testRunner.Given(string.Format("enters valid username \'{0}\' and password \'{1}\'  clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 20
-testRunner.When(string.Format("User edits the existing \'{0}\' to \'<new_language>\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+testRunner.When(string.Format("User edits the existing \'{0}\' level to new \'{1}\'", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
-testRunner.And(string.Format("User Edits the Language \'{0}\' to \'{1}\'", level, new_Level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 22
+#line 18
 testRunner.And("User clicks on Update button to save language changes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 23
-testRunner.Then(string.Format("User should see the \'<new_language>\' and \'{0}\'", new_Level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
+testRunner.Then(string.Format("User should see the \'{0}\' and \'{1}\'", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -156,16 +151,17 @@ testRunner.Then(string.Format("User should see the \'<new_language>\' and \'{0}\
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("3-User is able to delete language")]
-        [NUnit.Framework.TestCaseAttribute("English", null)]
-        [NUnit.Framework.TestCaseAttribute("French", null)]
-        [NUnit.Framework.TestCaseAttribute("Spanish", null)]
-        public void _3_UserIsAbleToDeleteLanguage(string existing_Language, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "English", "Fluent", null)]
+        public void _3_UserIsAbleToDeleteLanguage(string username, string password, string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("existing_language", existing_Language);
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("language", language);
+            argumentsOfScenario.Add("level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3-User is able to delete language", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 32
+#line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -175,14 +171,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 33
-testRunner.Given("User navigates to Language tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 28
+testRunner.Given(string.Format("enters valid username \'{0}\' and password \'{1}\'  clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 34
-testRunner.When(string.Format("User deletes  \'{0}\'", existing_Language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+testRunner.When(string.Format("User deletes  \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 35
-testRunner.Then(string.Format("User should not see the  \'{0}\' in the profile", existing_Language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+testRunner.Then(string.Format("User should not see the  \'{0}\' in the profile", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

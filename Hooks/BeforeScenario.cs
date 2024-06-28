@@ -26,11 +26,12 @@ namespace ProjectMarsAutomation.Hooks
         }
 
 
-        [AfterScenario]
+       /* [AfterScenario]
           public void AfterScenario()
           {
              driver.Quit();
-        }
+       }
+        */
       
     }
 }

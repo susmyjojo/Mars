@@ -75,7 +75,7 @@ namespace Mars.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1- user is able to add a Skill and choose a level and save")]
-        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "SQL", "Advanced", null)]
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "SQL", "Intermediate", null)]
         public void _1_UserIsAbleToAddASkillAndChooseALevelAndSave(string username, string password, string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -106,27 +106,25 @@ testRunner.When(string.Format("User navigates to Skill tab and User adds a  \'{0
                             "button", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-testRunner.Then(string.Format("User should see the \'{0}\' added to the profile", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User should see the \'{0}\' and \'{1}\'added to the profile", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User is able to edit skill and level")]
-        [NUnit.Framework.TestCaseAttribute("SQL", "Advanced", "CPP", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("Java", "Beginner", "Coding", "Advanced", null)]
-        [NUnit.Framework.TestCaseAttribute("C#", "Intermediate", "Testing", "Expert", null)]
-        public void UserIsAbleToEditSkillAndLevel(string skill, string level, string new_Skill, string new_Level, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("2-User is able to edit skill and level")]
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "SQL", "Beginner", null)]
+        public void _2_UserIsAbleToEditSkillAndLevel(string username, string password, string skill, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
             argumentsOfScenario.Add("skill", skill);
             argumentsOfScenario.Add("level", level);
-            argumentsOfScenario.Add("new _skill", new_Skill);
-            argumentsOfScenario.Add("new_level", new_Level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is able to edit skill and level", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2-User is able to edit skill and level", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 15
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -136,37 +134,37 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 16
+testRunner.Given(string.Format("enters valid username \'{0}\' and password \'{1}\'  clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
 #line 17
-testRunner.Given("User navigates to Skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.And("User navigates to Skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
-testRunner.When(string.Format("User edits the {0} to <new_skill>", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("User edits the \'{0}\' level to new\'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
-testRunner.And(string.Format("User Edits the {0} to {1}", level, new_Level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 20
 testRunner.And("User clicks on Update button to save changes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 21
-testRunner.Then(string.Format("User should see the <new_skill> and {0}", new_Level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+testRunner.Then(string.Format("User should see the \'{0}\' and \'{1}\'", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User is able to delete skill")]
-        [NUnit.Framework.TestCaseAttribute("SQL", null)]
-        [NUnit.Framework.TestCaseAttribute("Java", null)]
-        [NUnit.Framework.TestCaseAttribute("C#", null)]
-        public void UserIsAbleToDeleteSkill(string existing_Skill, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("3-User is able to delete skill")]
+        [NUnit.Framework.TestCaseAttribute("jojojoseph93@gmail.com", "123456789", "SQL", null)]
+        public void _3_UserIsAbleToDeleteSkill(string username, string password, string skill, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("existing_skill", existing_Skill);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User is able to delete skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 30
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("skill", skill);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3-User is able to delete skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -176,14 +174,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 29
+testRunner.Given(string.Format("enters valid username \'{0}\' and password \'{1}\'  clicks login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 30
+testRunner.And("User navigates to Skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 31
-testRunner.Given("User navigates to Skill tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.When(string.Format("User deletes skill \'{0}\'", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 32
-testRunner.When(string.Format("User deletes  {0}", existing_Skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 33
-testRunner.Then(string.Format("User should not see the  {0} in the profile", existing_Skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("User should not see the  \'{0}\' in the profile", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
